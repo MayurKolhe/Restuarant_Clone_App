@@ -1,0 +1,137 @@
+*{
+    margin:0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* header CSS */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    width: auto;
+    background-color: rgb(1, 163, 144);
+    border-radius: 5px;
+    box-shadow: -1px 4px 20px 14px rgb(0, 0, 0,0.2) ;
+    color: black;
+    font-weight: bold;
+}
+
+.myRestaurantAppLogo{
+    padding-left: 20px;
+    width: 100px;
+}
+
+.nav-items{
+    padding: 0 10px 0;
+    width: auto;
+}
+
+.nav-items > ul{
+    display: flex;
+    list-style-type:none;
+
+}
+
+
+.nav-items > ul > li {
+    padding: 40px 20px 0 0;
+    font-size: large;
+    cursor: pointer;
+}
+
+/* body csss */
+
+.restaurant-list{
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.card{
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 5px 10px 20px 14px rgba(0, 0, 0, 20);
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.card > img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card > span{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card > span > h4{
+    text-align: center;
+}
+
+.card > span > h4:first-child{
+    display: flex;
+    align-items: center;
+    background-color: rgb(19, 176, 1);
+    border-radius: 5px;
+    padding: 0 5px 0;
+    color: white;
+}
+
+.card > span > h4:first-child .fa-star{
+    font-size: small;
+    padding: 0 5px 3px 0;
+}
+
+/* footer Css */
+
+.footer{
+    margin: 10px;
+    width: auto;
+    text-align: center;
+    background-color: rgb(1, 163, 144);
+    padding: 20px 10px 20px;
+    border-radius: 5px;
+    box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
+}
+
+.footer > i{
+    padding: 0 5px 0;
+    font-size:larger;
+}
+
+.fa-heart{
+    color: darkred;
+}
+
+.footer > strong{
+    padding-left: 5px;
+}
+
+.footer > strong > span{
+    color: rgb(3, 15, 11)
+}
+
+.search-restaurants{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.search{
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 5px solid rgb(163, 133, 1);
+}
+.serach-button{
+    padding: 10px;
+    border-radius: 5px;
+    border: 5px solid rgb(55, 163, 1);
+    background-color: rgb(163, 87, 1);
+    color: white;
+    cursor: pointer;
+}
