@@ -1,38 +1,49 @@
 import React, { useState } from "react";
 import { list, DisplayResturant } from "../config";
 
-const filertData = (searchText, listData) => {
-  const filteredList = listData.filter((restaurant) =>
-    restaurant?.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-  return filteredList;
-};
+const FileteredData = (searchText, restaurants) => {
+  const filteredResturants = restaurants.filter((restaurant) => {
+    return (
+      restaurant.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      restaurant.description.toLowerCase().includes(searchText.toLowerCase())
+    );
+  })
+
+  return filteredResturants;
+}
 
 const Body = () => {
-  const [searchText, SetSearchText] = useState("");
-  const [listData, setListData] = useState(list);
+  const [searchText, setSearchText] = useState("");
+  const [restaurants, setRestaurants] = useState(list);
+
+  const handleSearch = (newSearchText) => {
+    setSearchText(newSearchText);
+    const data = FileteredData(newSearchText, list);
+    setRestaurants(data);
+  }
+
   return (
     <>
       <div className="search-restaurants">
         <input
           type="text"
-          placeholder="Restaurants"
+          placeholder="serach for Resturants"
           className="search"
           value={searchText}
-          onChange={(e) => SetSearchText(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value)}
         />
         <button
           className="serach-button"
           onClick={() => {
-            const data = filertData(searchText, listData);
-            setListData(data);
+            const data = FileteredData(searchText, restaurants);
+            setRestaurants(data);
           }}
         >
           Search
         </button>
       </div>
       <div className="restaurant-list">
-        {listData.map((restaurant) => {
+        {restaurants.map((restaurant) => {
           return <DisplayResturant key={restaurant.id} {...restaurant} />;
         })}
       </div>

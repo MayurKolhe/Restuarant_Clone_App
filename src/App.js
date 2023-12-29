@@ -3,13 +3,15 @@ import ReactDOM from "react-dom";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import TodoTask from "./components/Todo";
 
 const AppLayout = () => {
   return (
     <>
-      <Header />
+      {/* <Header />
       <Body />
-      <Footer />
+      <Footer /> */}
+      <TodoTask/>
     </>
   );
 };
