@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
@@ -7,12 +7,12 @@ import TodoTask from "./components/Todo";
 
 const AppLayout = () => {
   return (
-    <>
-      {/* <Header />
+    <React.Fragment>
+      <Header />
       <Body />
-      <Footer /> */}
-      <TodoTask/>
-    </>
+      <Footer />
+      {/* <TodoTask/> */}
+    </React.Fragment>
   );
 };
 

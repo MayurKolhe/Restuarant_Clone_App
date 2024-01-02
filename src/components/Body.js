@@ -1,41 +1,36 @@
-import React, { useState } from "react";
-import { list, DisplayResturant } from "../config";
+import { restaurantList } from "../config";
+import RestaurantCard from "./Restaurant";
+import { useState } from "react";
 
-const FileteredData = (searchText, restaurants) => {
-  const filteredResturants = restaurants.filter((restaurant) => {
-    return (
-      restaurant.name.toLowerCase().includes(searchText.toLowerCase()) ||
-      restaurant.description.toLowerCase().includes(searchText.toLowerCase())
-    );
-  })
-
-  return filteredResturants;
+function filterData(searchText, restaurants) {
+  const filterData = restaurants.filter((restaurant) =>
+    restaurant?.data?.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+  return filterData;
 }
 
+// Body Component for body section: It contain all restaurant cards
+// We are mapping restaurantList array and passing JSON data to RestaurantCard component as props with unique key as index
 const Body = () => {
+  // useState: To create a state variable, searchText is local state variable
   const [searchText, setSearchText] = useState("");
-  const [restaurants, setRestaurants] = useState(list);
-
-  const handleSearch = (newSearchText) => {
-    setSearchText(newSearchText);
-    const data = FileteredData(newSearchText, list);
-    setRestaurants(data);
-  }
-
+  const [restaurants, setRestaurants] = useState(restaurantList);
   return (
     <>
-      <div className="search-restaurants">
+      <div className="search-restaurants-container">
         <input
           type="text"
-          placeholder="serach for Resturants"
-          className="search"
+          className="search-input"
+          placeholder="Search a restaurant you want..."
           value={searchText}
-          onChange={(e) => handleSearch(e.target.value)}
-        />
+          onChange={(e) => setSearchText(e.target.value)}
+        ></input>
         <button
           className="serach-button"
           onClick={() => {
-            const data = FileteredData(searchText, restaurants);
+            // filter the data
+            const data = filterData(searchText, restaurants);
+            // update the state of restaurants list
             setRestaurants(data);
           }}
         >
@@ -44,7 +39,9 @@ const Body = () => {
       </div>
       <div className="restaurant-list">
         {restaurants.map((restaurant) => {
-          return <DisplayResturant key={restaurant.id} {...restaurant} />;
+          return (
+            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+          );
         })}
       </div>
     </>
