@@ -1,0 +1,18 @@
+{
+  "AVAILABLE": [
+    {
+      "id": "1",
+      "label": "Snowflake",
+      "icon": "<Icon name=\"star-full\" />",
+      "info": ""
+    }
+  ],
+  "COMING_SOON": [
+    {
+      "id": "2",
+      "label": "Databricks",
+      "icon": "<Icon name=\"star-empty\" />",
+      "info": ""
+    }
+  ]
+}

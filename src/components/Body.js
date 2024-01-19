@@ -1,22 +1,66 @@
-import { restaurantList } from "../config";
+import { swiggy_api_URL } from "../config";
 import RestaurantCard from "./Restaurant";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Shrimer from "./Shrimer";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
-    restaurant?.data?.name.toLowerCase().includes(searchText.toLowerCase())
+    restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
   );
   return filterData;
 }
 
-// Body Component for body section: It contain all restaurant cards
-// We are mapping restaurantList array and passing JSON data to RestaurantCard component as props with unique key as index
 const Body = () => {
   // useState: To create a state variable, searchText is local state variable
   const [searchText, setSearchText] = useState("");
-  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [filterRestaurant, setFilterRestaurant] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const getAllResturants = async () => {
+    try {
+      const response = await fetch(swiggy_api_URL);
+      const data = await response.json();
+      async function verifyData(jsonData) {
+        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+          const check =
+            jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
+          if (check !== undefined) return check;
+        }
+      }
+      const verifiedData = await verifyData(data);
+      setAllRestaurants(verifiedData);
+      setFilterRestaurant(verifiedData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const serachData = (searchText, restaurants) => {
+    if (searchText !== "") {
+      const filterrestaurant = filterData(searchText, restaurants);
+      setFilterRestaurant(filterrestaurant);
+      setErrorMsg("");
+      if (filterrestaurant?.length === 0) {
+        setErrorMsg("No Restaurant is Aviable with the Given Name");
+      }
+    } else {
+      setErrorMsg("");
+      setFilterRestaurant(restaurants);
+    }
+  };
+
+  useEffect(() => {
+    getAllResturants();
+  }, []);
+
+  if (!allRestaurants) return null;
+
   return (
     <>
+      {console.log("rendered")}
       <div className="search-restaurants-container">
         <input
           type="text"
@@ -28,22 +72,31 @@ const Body = () => {
         <button
           className="serach-button"
           onClick={() => {
-            // filter the data
-            const data = filterData(searchText, restaurants);
-            // update the state of restaurants list
-            setRestaurants(data);
+            serachData(searchText, allRestaurants);
           }}
         >
           Search
         </button>
       </div>
-      <div className="restaurant-list">
-        {restaurants.map((restaurant) => {
-          return (
-            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
-          );
-        })}
-      </div>
+
+      {errorMsg && <div className="error-container">{errorMsg}</div>}
+
+      {allRestaurants?.length === 0 ? (
+        <Shrimer />
+      ) : (
+        <div className="restaurant-list">
+          {filterRestaurant.map((restaurant) => {
+            return (
+              <Link
+                to={"/restaurant/" + restaurant?.info?.id}
+                key={restaurant?.info?.id}
+              >
+                <RestaurantCard {...restaurant?.info} />
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

@@ -42,6 +42,11 @@
 }
 
 /* body csss */
+.error-container {
+  text-align: center;
+  font-size: large;
+  margin: 20px 0;
+}
 
 .restaurant-list{
     width: auto;
@@ -134,4 +139,305 @@
     background-color: rgb(163, 87, 1);
     color: white;
     cursor: pointer;
+}
+
+.shrimer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+.shimmer-card {
+  flex-basis: 250px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-color: #d3d5df;
+  box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
+}
+.shimmer-title {
+  width: 60%;
+  margin-top: 10px;
+}
+.shimmer-tags {
+  width: 80%;
+  margin-top: 4px;
+}
+.shimmer-details {
+  width: 100%;
+  margin-top: 18px;
+}
+.shimmer-container .shimmer-img {
+  height: 144px;
+  width: 230px;
+}
+
+/*Animation to Shimmer Component Cards */
+.restaurant-summary .shimmer-img {
+  height: 144px;
+  width: 230px;
+}
+
+.shimmer-menu-card {
+  display: flex;
+  justify-content: space-evenly;
+  width: 848px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-color: #d3d5df;
+  box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
+}
+.shimmer-item-details {
+  width: 438px;
+}
+
+.shimmer-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 118px;
+  height: 150px;
+}
+.shimmer-img-wrapper .shimmer-img {
+  width: 118px;
+  height: 96px;
+}
+
+.shimmer-img-wrapper .shimmer-btn {
+  width: 94px;
+  height: 34px;
+  margin-top: 10px;
+}
+
+.shimmer-w60 {
+  width: 60%;
+  margin-top: 10px;
+}
+
+.shimmer-w40 {
+  width: 40%;
+  margin-top: 10px;
+}
+
+.shimmer-w20 {
+  width: 20%;
+  margin-top: 4px;
+}
+/* Shimmer Menu Card CSS End */
+
+/*Animation to Shimmer Component Card and Menu card Start*/
+.stroke {
+  height: 15px;
+  background: #777;
+}
+.stroke-color {
+  background: #777;
+}
+.animate {
+  animation: shimmer 3s;
+  animation-iteration-count: infinite;
+  background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+  background-size: 1000px 100%;
+}
+@keyframes shimmer {
+  from {
+    background-position: -1000px 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
+}
+
+.logout-button{
+    padding: 15px;
+    border-radius: 5px;
+    border: 10px solid rgb(1, 104, 163);
+    background-color: rgb(36, 163, 1);
+    color: white;
+    cursor: pointer;
+}
+
+.login-button{
+    padding: 15px;
+    border-radius: 5px;
+    border: 10px solid rgb(109, 1, 163);
+    background-color: rgb(255, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+.about-container .about-left {
+  padding-left: 10px;
+}
+.about-container .about-left h1 {
+  font-size: 70px;
+}
+.about-container .about-left h1 span {
+  background-color: var(--orange);
+  padding: 0 10px;
+  border-radius: 15px;
+  color: var(--white);
+}
+.about-container .about-left h4 {
+  font-size: 25px;
+  padding-top: 10px;
+  font-style: italic;
+}
+.about-container .about-left h4 span {
+  color: var(--dark-orange);
+}
+.about-container .about-right {
+  padding-left: 20px;
+}
+.about-container .about-right img {
+  width: 500px;
+  padding-right: 70px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100px auto 30px;
+  justify-content: space-evenly;
+  overflow-y: hidden;
+}
+
+.contact-container .contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+}
+
+.contact-container .contact-info form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.contact-container .contact-info form input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border: 2px solid #aabcca;
+  width: 50vh;
+}
+
+.contact-container .contact-info form textarea {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border: 2px solid #aabcca;
+  width: 50vh;
+}
+
+.contact-container .contact-info form button {
+  padding: 10px 15px;
+  margin: 10px;
+  background-color: var(--light-blue);
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+  color: #b64646b1;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact-container .contact-info form button:hover {
+  background-color: #46b66fb1;
+}
+
+.error-page {
+  text-align: center;
+  background-color: var(--body-bg-color);
+  height: 100vh;
+  width: auto;
+}
+.error-page .error-data {
+  padding: 10px 0px;
+}
+
+.error-page .error-back-home {
+  padding: 20px;
+}
+.error-page .error-back-home a {
+  text-decoration: none;
+  background-color: var(--orange);
+  color: var(--light-black);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.error-page .error-back-home a:hover {
+  background-color: var(--dark-green);
+}
+
+.login-container {
+  width: 380px;
+  margin: 40px auto 0;
+}
+
+.login-form {
+  position: relative;
+  z-index: 1;
+  background: var(--light-orange);
+  border-radius: 10px;
+  max-width: 380px;
+  padding: 25px 40px;
+  text-align: center;
+}
+
+.login-form input {
+  outline: 0;
+  background: rgb(255, 221, 0);
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.login-form input:focus {
+  background: var(--input-bg-focus);
+}
+
+.login-form button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #4b6cb7;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.login-form button:active {
+  background: #395591;
+}
+
+.login-form span {
+  font-size: 40px;
+  color: #4b6cb7;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.login-form p.error {
+  margin: 0 0 10px 10px;
+  text-align: left;
+  font-size: 13px;
+  color: red;
 }
