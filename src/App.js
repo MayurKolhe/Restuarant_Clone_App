@@ -9,6 +9,7 @@ import Error from "./components/Error";
 import TodoTask from "./components/Todo";
 import Popup from "./components/Popup";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestuarantMenu from "./components/RestaurantMenu";
@@ -37,22 +38,28 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/about",
+        path: "about",
         element: <About />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/contact",
         element: <Contact />,
       },
       {
-        path: '/restaurant/:resId',
-        element:<RestuarantMenu/>
+        path: "/restaurant/:resId",
+        element: <RestuarantMenu />,
       },
     ],
   },
   {
-    path: '/login',
-    element:<Login/>,
+    path: "/login",
+    element: <Login />,
   },
 ]);
 

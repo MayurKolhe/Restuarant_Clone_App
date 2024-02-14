@@ -23,6 +23,15 @@ export const shimmer_menu_card_unit = 4;
 // menu items api card type key
 export const MENU_ITEM_TYPE_KEY =
   "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
-  
+
 export const RESTAURANT_TYPE_KEY =
   "type.googleapis.com/swiggy.presentation.food.v2.Restaurant";
+
+export const Github_API_User = "https://api.github.com/users/";
+export const Github_UserName = "MayurKolhe";
+export const options = {
+  method: "GET",
+  headers: {
+    Authorization: "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",
+  },
+};
