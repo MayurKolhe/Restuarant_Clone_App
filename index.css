@@ -1,44 +1,42 @@
-*{
-    margin:0;
-    padding: 0;
-    overflow-x: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* header CSS */
 
-.header{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-    width: auto;
-    background-color: rgb(1, 163, 144);
-    border-radius: 5px;
-    box-shadow: -1px 4px 20px 14px rgb(0, 0, 0,0.2) ;
-    color: black;
-    font-weight: bold;
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  width: auto;
+  background-color: rgb(1, 163, 144);
+  border-radius: 5px;
+  box-shadow: -1px 4px 20px 14px rgb(0, 0, 0, 0.2);
+  color: black;
+  font-weight: bold;
 }
 
-.myRestaurantAppLogo{
-    padding-left: 20px;
-    width: 100px;
+.myRestaurantAppLogo {
+  padding-left: 20px;
+  width: 100px;
 }
 
-.nav-items{
-    padding: 0 10px 0;
-    width: auto;
+.nav-items {
+  padding: 0 10px 0;
+  width: auto;
 }
 
-.nav-items > ul{
-    display: flex;
-    list-style-type:none;
-
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
 }
-
 
 .nav-items > ul > li {
-    padding: 40px 20px 0 0;
-    font-size: large;
-    cursor: pointer;
+  padding: 40px 20px 0 0;
+  font-size: large;
+  cursor: pointer;
 }
 
 /* body csss */
@@ -46,99 +44,100 @@
   text-align: center;
   font-size: large;
   margin: 20px 0;
+  color: red;
 }
 
-.restaurant-list{
-    width: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:center;
+.restaurant-list {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.card{
-    width: 200px;
-    border-radius: 5px;
-    box-shadow: 5px 10px 20px 14px rgba(0, 0, 0, 20);
-    padding: 10px;
-    margin: 20px;
-    cursor: pointer;
+.card {
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: 5px 10px 20px 14px rgba(0, 0, 0, 20);
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
 }
 
-.card > img{
-    width: 100%;
-    border-radius: 10px;
+.card > img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.card > span{
-    display: flex;
-    justify-content: space-evenly;
+.card > span {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.card > span > h4{
-    text-align: center;
+.card > span > h4 {
+  text-align: center;
 }
 
-.card > span > h4:first-child{
-    display: flex;
-    align-items: center;
-    background-color: rgb(19, 176, 1);
-    border-radius: 5px;
-    padding: 0 5px 0;
-    color: white;
+.card > span > h4:first-child {
+  display: flex;
+  align-items: center;
+  background-color: rgb(19, 176, 1);
+  border-radius: 5px;
+  padding: 0 5px 0;
+  color: white;
 }
 
-.card > span > h4:first-child .fa-star{
-    font-size: small;
-    padding: 0 5px 3px 0;
+.card > span > h4:first-child .fa-star {
+  font-size: small;
+  padding: 0 5px 3px 0;
 }
 
 /* footer Css */
 
-.footer{
-    margin: 10px;
-    width: auto;
-    text-align: center;
-    background-color: rgb(1, 163, 144);
-    padding: 20px 10px 20px;
-    border-radius: 5px;
-    box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
+.footer {
+  margin: 10px;
+  width: auto;
+  text-align: center;
+  background-color: rgb(1, 163, 144);
+  padding: 20px 10px 20px;
+  border-radius: 5px;
+  box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
 }
 
-.footer > i{
-    padding: 0 5px 0;
-    font-size:larger;
+.footer > i {
+  padding: 0 5px 0;
+  font-size: larger;
 }
 
-.fa-heart{
-    color: darkred;
+.fa-heart {
+  color: darkred;
 }
 
-.footer > strong{
-    padding-left: 5px;
+.footer > strong {
+  padding-left: 5px;
 }
 
-.footer > strong > span{
-    color: rgb(3, 15, 11)
+.footer > strong > span {
+  color: rgb(3, 15, 11);
 }
 
-.search-restaurants-container{
-    display: flex;
-    justify-content: center;
-    margin: 20px;
+.search-restaurants-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
-.search-input{
-    width: 50%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 5px solid rgb(163, 133, 1);
+.search-input {
+  width: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 5px solid rgb(163, 133, 1);
 }
-.serach-button{
-    padding: 10px;
-    border-radius: 5px;
-    border: 5px solid rgb(55, 163, 1);
-    background-color: rgb(163, 87, 1);
-    color: white;
-    cursor: pointer;
+.serach-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 5px solid rgb(55, 163, 1);
+  background-color: rgb(163, 87, 1);
+  color: white;
+  cursor: pointer;
 }
 
 .shrimer-container {
@@ -172,16 +171,36 @@
 }
 
 /*Animation to Shimmer Component Cards */
+.restaurant-summary {
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.restaurant-summary .restaurant-img{
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+}
 .restaurant-summary .shimmer-img {
   height: 144px;
   width: 230px;
 }
+.add-btn{
+  display: block;
+  margin-left: 49%;
+  margin-bottom: 2%;
+}
+
 
 .shimmer-menu-card {
   display: flex;
   justify-content: space-evenly;
   width: 848px;
-  padding: 10px;
+  padding: 20px;
   margin-bottom: 10px;
   border-color: #d3d5df;
   box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
@@ -248,22 +267,22 @@
   }
 }
 
-.logout-button{
-    padding: 15px;
-    border-radius: 5px;
-    border: 10px solid rgb(1, 104, 163);
-    background-color: rgb(36, 163, 1);
-    color: white;
-    cursor: pointer;
+.logout-button {
+  padding: 15px;
+  border-radius: 5px;
+  border: 10px solid rgb(1, 104, 163);
+  background-color: rgb(36, 163, 1);
+  color: white;
+  cursor: pointer;
 }
 
-.login-button{
-    padding: 15px;
-    border-radius: 5px;
-    border: 10px solid rgb(109, 1, 163);
-    background-color: rgb(255, 0, 0);
-    color: white;
-    cursor: pointer;
+.login-button {
+  padding: 15px;
+  border-radius: 5px;
+  border: 10px solid rgb(109, 1, 163);
+  background-color: rgb(255, 0, 0);
+  color: white;
+  cursor: pointer;
 }
 
 .about-container .about-left {
@@ -442,7 +461,6 @@
   color: red;
 }
 
-
 .about-profile-container {
   margin: 100px auto 0px;
   text-align: center;
@@ -618,7 +636,7 @@
   margin: 30px 10px;
   color: #282828;
 }
-.profile-repo-items h3:hover{
+.profile-repo-items h3:hover {
   transform: scale(1.02);
   color: var(--dark-orange);
 }
@@ -634,7 +652,6 @@
   width: 100%;
   overflow-y: hidden;
 }
-
 
 .icon-button {
   width: inherit;
@@ -656,7 +673,7 @@
   margin: 0 5px 10px;
   overflow-y: hidden;
 }
-.icon-button i:hover{
+.icon-button i:hover {
   transform: scale(1.02);
 }
 .linkedin i {
@@ -733,4 +750,33 @@
 
 .contact-container .contact-right form button:hover {
   background-color: var(--dark-green);
+}
+
+
+.menu-items-container{
+  text-align: center;
+  text-overflow:inherit;
+}
+
+
+.user-offline-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.user-offline-heading {
+  color: #333333;
+  margin-top: 100px;
+}
+
+.offline-image {
+  width: 200px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.user-offline-message {
+  color: #505050;
+  font-size: 18px;
+  margin: 20px 0px;
 }
