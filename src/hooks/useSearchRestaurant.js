@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { serachData } from "../utility/helper";
+import { searchData } from "../utility/helper";
 
-const useSearchReaturant = (allRestaurants) => {
+const useSearchRestaurant = (allRestaurants) => {
   const [searchText, setSearchText] = useState("");
   const [filterRestaurant, setFilterRestaurant] = useState(allRestaurants);
   const [errorMsg, setErrorMsg] = useState("");
@@ -11,7 +11,7 @@ const useSearchReaturant = (allRestaurants) => {
       setErrorMsg("");
       setFilterRestaurant(allRestaurants);
     } else {
-      const searchResults = serachData(searchText, allRestaurants);
+      const searchResults = searchData(searchText, allRestaurants);
       if (searchResults.length === 0) {
         setErrorMsg("No Restaurant is Available with the Given Name");
       }
@@ -32,4 +32,4 @@ const useSearchReaturant = (allRestaurants) => {
   };
 };
 
-export default useSearchReaturant;
+export default useSearchRestaurant;

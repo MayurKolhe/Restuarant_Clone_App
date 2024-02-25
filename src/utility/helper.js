@@ -13,7 +13,7 @@ export async function verifyData(jsonData) {
   }
 }
 
-export const serachData = (searchText, restaurants) => {
+export const searchData = (searchText, restaurants) => {
   if (searchText !== "") {
     const filterrestaurant = filterData(searchText, restaurants);
     return filterrestaurant;

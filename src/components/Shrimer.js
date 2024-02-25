@@ -1,14 +1,17 @@
 import { shimmer_card_unit, shimmer_menu_card_unit } from "../config";
 
 
-const CardShrimmer = () => {
+const CardShrimer = () => {
     return (
-            <div className="shimmer-card">
-                <div className="shimmer-img stroke animate"></div>
-                <div className="shimmer-title stroke animate"></div>
-                <div className="shimmer-tags stroke animate "></div>
-                <div className="shimmer-details stroke animate "></div>
-            </div>
+      <div className="p-4 m-3 w-52 h-80 bg-slate-100 shadow-lg on hover:bg-orange-300 on">
+      <div className="shimmer-img stroke animate border-2 border-black p-1 on hover:border-blue-200"></div> {/* Restaurant image */}
+      <div className="shimmer-title stroke animate flex flex-wrap text-black font-bold"></div> {/* Restaurant name */}
+      <div className="shimmer-tags stroke animate flex flex-wrap justify-start font-semibold text-xs"></div> {/* Cuisine type */}
+      <div className="shimmer-details stroke animate justify-start text-sm font-extrabold"></div> {/* Location or rating */}
+      <div className="shimmer-rating stroke animate p-1 m-2 bg-white text-black font-bold"></div> {/* Rating */}
+      <div className="shimmer-travel stroke animate p-1 m-2 border-s-4"></div> {/* Last mile travel */}
+      <div className="shimmer-cost stroke animate p-2 ml-8 text-pretty font-extrabold text-lg text-blue-500"></div> {/* Cost for two */}
+  </div>
     );
 };
 
@@ -55,10 +58,10 @@ export const MenuShimmer = () => {
 
 export default Shrimer = () => {
     return (
-        <div className="shrimer-container">
+        <div className="flex flex-wrap">
             {
                 new Array(shimmer_card_unit).fill(0).map((element, index) => {
-                    return <CardShrimmer key={index} />;
+                    return <CardShrimer key={index} />;
                 })
             }
         </div>

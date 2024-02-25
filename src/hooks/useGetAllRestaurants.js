@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { swiggy_api_URL } from "../config";
 import {verifyData } from "../utility/helper";
 
-const useGetAllResturants = () => {
+const useGetAllRestaurants = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
 
-  const getAllResturants = async () => {
+  const getAllRestaurants = async () => {
     try {
       const response = await fetch(swiggy_api_URL);
       const data = await response.json();
@@ -17,10 +17,10 @@ const useGetAllResturants = () => {
   };
 
   useEffect(() => {
-    getAllResturants();
+    getAllRestaurants();
   }, []);
 
   return allRestaurants;
 };
 
-export default useGetAllResturants;
+export default useGetAllRestaurants;

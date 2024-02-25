@@ -5,23 +5,23 @@ import {
   MENU_ITEM_TYPE_KEY,
 } from "../config";
 import { useEffect, useState } from "react";
-const useGetResturantMenu = () => {
+const useGetRestaurantMenu = () => {
   const { resId } = useParams();
   const [restaurant, setRestaurant] = useState(null);
   const [menuItems, setMenuItems] = useState([]);
 
   const getRestaurantInfo = async () => {
     const response = await fetch(swiggy_menu_api_URL + resId);
-    const restaurantdata = await response.json();
-    const VerifiedResturantData =
-      restaurantdata?.data?.cards
+    const RestaurantData = await response.json();
+    const VerifiedRestaurantData =
+    RestaurantData?.data?.cards
         ?.map((rest) => rest.card)
         ?.find((rest) => rest && rest.card["@type"] === RESTAURANT_TYPE_KEY)
         ?.card?.info || null;
-    setRestaurant(VerifiedResturantData);
+    setRestaurant(VerifiedRestaurantData);
 
     const verifiedMenuItems =
-      restaurantdata?.data?.cards
+    RestaurantData?.data?.cards
         ?.find((res) => res.groupedCard)
         ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((x) => x.card?.card)
         ?.filter((x) => x["@type"] == MENU_ITEM_TYPE_KEY)
@@ -44,4 +44,4 @@ const useGetResturantMenu = () => {
   return { restaurant, menuItems };
 };
 
-export default useGetResturantMenu;
+export default useGetRestaurantMenu;

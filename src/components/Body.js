@@ -1,19 +1,19 @@
 import RestaurantCard from "./Restaurant";
 import Shrimer from "./Shrimer";
 import { Link } from "react-router-dom";
-import useGetAllResturants from "../hooks/useGetAllResturants";
-import useSearchReaturant from "../hooks/useSearchReaturant";
+import useGetAllRestaurants from "../hooks/useGetAllRestaurants";
+import useSearchRestaurant from "../hooks/useSearchRestaurant";
 import useOnline from "../hooks/useOnline";
 import UserOffline from "./UserOffline";
 const Body = () => {
-  const allRestaurants = useGetAllResturants();
+  const allRestaurants = useGetAllRestaurants();
   const {
     searchText,
     setSearchText,
     filterRestaurant,
     errorMsg,
     handleSearch,
-  } = useSearchReaturant(allRestaurants);
+  } = useSearchRestaurant(allRestaurants);
   const isOnline = useOnline();
   
   if (!isOnline) {
@@ -25,25 +25,23 @@ const Body = () => {
   return (
     <>
       {console.log("rendered")}
-      <div className="search-restaurants-container">
+      <div className="flex justify-center">
         <input
           type="text"
-          className="search-input"
+          className="md:w-96 m-1 p-2 border-4 border-black focus-within:placeholder:text-gray-500 text-black rounded-md"
           placeholder="Search a restaurant you want..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
-        <button className="serach-button" onClick={handleSearch}>
+        <button className="m-2 border-black hover:bg-slate-800 hover:text-white bg-slate-200 p-1 rounded-md border-2" onClick={handleSearch}>
           Search
         </button>
       </div>
-
-      {errorMsg && <div className="error-container">{errorMsg}</div>}
-
+      {errorMsg && <div className="text-red-400 text-lg">{errorMsg}</div>}
       {filterRestaurant?.length === 0 ? (
         <Shrimer />
       ) : (
-        <div className="restaurant-list">
+        <div className="flex flex-wrap justify-center">
           {filterRestaurant.map((restaurant) => {
             return (
               <Link

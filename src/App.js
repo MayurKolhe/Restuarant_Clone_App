@@ -11,10 +11,9 @@ import Popup from "./components/Popup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-// import RestuarantMenu from "./components/RestaurantMenu";
 import Login from "./components/Login";
 
-const RestuarantMenu = lazy(() => import("./components/RestaurantMenu"));
+const  RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
 const AppLayout = () => {
   return (
@@ -56,7 +55,7 @@ const appRouter = createBrowserRouter([
         path: "/restaurant/:resId",
         element: (
           <Suspense fallback={<h1> Please wait Page is getting Load</h1>}>
-            <RestuarantMenu />
+            <RestaurantMenu />
           </Suspense>
         ),
       },
@@ -72,4 +71,3 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<RouterProvider router={appRouter} />);
 
-// root.render(<AppLayout />);
