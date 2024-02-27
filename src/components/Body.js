@@ -1,4 +1,4 @@
-import RestaurantCard from "./Restaurant";
+import RestaurantCard, { withDiscountTag } from "./Restaurant";
 import Shrimer from "./Shrimer";
 import { Link } from "react-router-dom";
 import useGetAllRestaurants from "../hooks/useGetAllRestaurants";
@@ -14,14 +14,23 @@ const Body = () => {
     errorMsg,
     handleSearch,
   } = useSearchRestaurant(allRestaurants);
+
+  const RestaurantCardDiscount = withDiscountTag(RestaurantCard);
   const isOnline = useOnline();
-  
+
   if (!isOnline) {
     return <UserOffline />;
   }
 
   if (!allRestaurants) return null;
 
+  const verifyDiscount = (discount) => {
+    if (discount !== null && discount !== undefined && discount !== "ITEMS") {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <>
       {console.log("rendered")}
@@ -33,7 +42,10 @@ const Body = () => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
-        <button className="m-2 border-black hover:bg-slate-800 hover:text-white bg-slate-200 p-1 rounded-md border-2" onClick={handleSearch}>
+        <button
+          className="m-2 border-black hover:bg-slate-800 hover:text-white bg-slate-200 p-1 rounded-md border-2"
+          onClick={handleSearch}
+        >
           Search
         </button>
       </div>
@@ -48,7 +60,13 @@ const Body = () => {
                 to={"/restaurant/" + restaurant?.info?.id}
                 key={restaurant?.info?.id}
               >
-                <RestaurantCard {...restaurant?.info} />
+                {verifyDiscount(
+                  restaurant?.info?.aggregatedDiscountInfoV3?.header
+                ) ? (
+                  <RestaurantCardDiscount restaurantData={restaurant?.info} />
+                ) : (
+                  <RestaurantCard restaurantData={restaurant?.info} />
+                )}
               </Link>
             );
           })}

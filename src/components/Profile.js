@@ -33,7 +33,7 @@ class Profile extends React.Component {
   render() {
     const { userInfo } = this.state;
     return (
-      <div className="profile-class-contianer">
+      <div className="profile-class-container">
         <div className="profile-container">
           <h1 className="profile-title">About Me</h1>
           <ProfileUser data={userInfo} />

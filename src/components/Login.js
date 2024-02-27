@@ -12,12 +12,12 @@ const schema = Yup.object().shape({
 });
 
 const Login = () => {
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
 
   const HandelNavigate = (values) => {
     alert(values);
     setTimeout(() => {
-      naviagte("/");
+      navigate("/");
     }, 0);
   };
 

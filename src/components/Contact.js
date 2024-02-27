@@ -18,7 +18,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder="Name" />
                     <input type="email" placeholder="Email" />
-                    <textarea placeholder="Please Proivde us you Query...." required />
+                    <textarea placeholder="Please Provide us you Query...." required />
                     <button type="submit" cl>Submit</button>
                 </form>
                 {message && <span> Thank you for reaching out to us, We will Get back to you ASAP</span>}

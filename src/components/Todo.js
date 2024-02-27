@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 
 const TodoTask = () => {
-  const [todo, setdoTask] = useState([]);
+  const [toDo, setToDo] = useState([]);
 
   useEffect(() => {
-    fetchTodoTaks();
+    fetchTodoTask();
   }, []);
 
-  const fetchTodoTaks = async () => {
+  const fetchTodoTask = async () => {
     await fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((TodoTaskData) => {
         const sortedData = TodoTaskData.sort((a, b) => a.userId - b.userId);
-        setdoTask(sortedData);
+        setToDo(sortedData);
       })
       .catch((error) => console.log(error));
   };
@@ -22,12 +22,12 @@ const TodoTask = () => {
       <div>
         <h1> Todays TodoTask</h1>
         <ul>
-          {todo.map((taks) => (
-            <li key={taks.id}>
-              <strong>{taks.userId}</strong>
+          {toDo.map((task) => (
+            <li key={task.id}>
+              <strong>{task.userId}</strong>
               <br />
-              <strong>{taks.title}</strong> <br />
-              <strong>Status : {taks.Completed ? "Yes" : "NO"}</strong>
+              <strong>{task.title}</strong> <br />
+              <strong>Status : {task.Completed ? "Yes" : "NO"}</strong>
             </li>
           ))}
         </ul>

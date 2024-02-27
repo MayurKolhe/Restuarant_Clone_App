@@ -10,7 +10,7 @@ class ProfileUser extends React.Component {
 
   componentDidUpdate() {}
 
-  componenetWillUnmount() {}
+  componentWillUnmount() {}
 
   render() {
     const { name, avatar_url, bio } = this.props.data;

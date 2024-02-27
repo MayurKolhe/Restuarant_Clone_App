@@ -27,7 +27,7 @@ class ProfileRepo extends React.Component {
     return (
       <div>
         {repoList
-          .filter((repo) => repo.name === "Restuarant_Clone_App")
+          .filter((repo) => repo.name === "Restaurant_Clone_App")
           .map((repo) => {
             return (
               <div key={repo.id}>

@@ -35,7 +35,7 @@ const About = () => {
         <div className="about-left">
           <h1>
             Welcome to <br /> The world of <br />
-            Mayur Resturant App
+            Mayur Restaurant App
             <span>Tasty & Fresh Food</span>
           </h1>
           <h4>
