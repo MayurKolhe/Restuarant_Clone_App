@@ -14,27 +14,24 @@ const useGetRestaurantMenu = () => {
     const response = await fetch(swiggy_menu_api_URL + resId);
     const RestaurantData = await response.json();
     const VerifiedRestaurantData =
-    RestaurantData?.data?.cards
+      RestaurantData?.data?.cards
         ?.map((rest) => rest.card)
         ?.find((rest) => rest && rest.card["@type"] === RESTAURANT_TYPE_KEY)
         ?.card?.info || null;
     setRestaurant(VerifiedRestaurantData);
 
-    const verifiedMenuItems =
-    RestaurantData?.data?.cards
-        ?.find((res) => res.groupedCard)
-        ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((x) => x.card?.card)
-        ?.filter((x) => x["@type"] == MENU_ITEM_TYPE_KEY)
-        ?.map((x) => x.itemCards)
-        .flat()
-        .map((x) => x.card?.info) || [];
-    const uniqueMenuItems = [];
-    verifiedMenuItems.forEach((item) => {
-      if (!uniqueMenuItems.find((x) => x.id === item.id)) {
-        uniqueMenuItems.push(item);
-      }
-    });
-    setMenuItems(uniqueMenuItems);
+    const itemsCards = RestaurantData?.data?.cards.find(
+      (rest) => rest && rest.groupedCard
+    );
+
+    const {cards} = itemsCards?.groupedCard?.cardGroupMap?.REGULAR;
+
+    const ItemCategory = cards.filter((rest)=> rest.card?.["card"]?.['@type'] === MENU_ITEM_TYPE_KEY)
+    
+    console.log("🚀 ~ getRestaurantInfo ~ ItemCategory:", ItemCategory)
+
+   
+    setMenuItems(ItemCategory);
   };
 
   useEffect(() => {
