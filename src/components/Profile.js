@@ -1,6 +1,4 @@
 import React from "react";
-
-import { Github_API_User, Github_Username, options } from "../config";
 import ProfileUser from "./ProfileUser";
 
 class Profile extends React.Component {
@@ -43,7 +41,6 @@ class Profile extends React.Component {
             Food <span> Fire</span> App Repository
           </h1>
           {/* <ProfileRepo followers={userInfo.followers} /> */}
-          {}
         </div>
       </div>
     );

@@ -1,4 +1,4 @@
-import { React, lazy, Suspense } from "react";
+import { React, lazy, Suspense, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -10,19 +10,33 @@ import TodoTask from "./components/Todo";
 import Popup from "./components/Popup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import userDetailsContext from "./hooks/useGetUserDetail";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Login from "./components/Login";
 
-const  RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  //authentication
+  useEffect(() => {
+    // Make an API call and send username and password
+    const data = {
+      name: "Mayur Kolhe",
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
-      {/* <TodoTask/> */}
-      {/* <Popup/> */}
+      <userDetailsContext.Provider value={{ loggedInUser: userName, setUserName }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        {/* <TodoTask/> */}
+        {/* <Popup/> */}
+      </userDetailsContext.Provider>
     </>
   );
 };
@@ -38,8 +52,12 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "about",
-        element: <About />,
+        path: "/about",
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <About />
+          </Suspense>
+        ),
         children: [
           {
             path: "profile",
@@ -70,4 +88,3 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<RouterProvider router={appRouter} />);
-

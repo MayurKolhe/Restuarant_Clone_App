@@ -1,38 +1,30 @@
 import { Link } from "react-router-dom";
 import { Title } from "./Title";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import cart from "../../Images/cart.jpg";
+import userDetailsContext from "../hooks/useGetUserDetail";
 
 const Header = () => {
   const [checkLogin, setCheckLogin] = useState(false);
+
+  const { loggedInUser } = useContext(userDetailsContext);
 
   return (
     <div className="p-2">
       <nav className="h-26 flex items-center justify-between shadow-2xl shadow-black bg-orange-300">
         <Title />
         <div>
-          <ul className="flex space-x-52 border-x-4 border-x-orange-500 text-emerald-800 hover:bg-orange-700">
-            <Link>
-              <li className="m-10 hover:bg-orange-600 hover:text-white" to="/">
-                HOME
-              </li>
+          <ul className="flex space-x-52 border-x-4 border-x-orange-500 text-emerald-800">
+            <Link to="/">
+              <li className="m-10 hover:text-white">HOME</li>
             </Link>
-            <Link>
-              <li
-                className="m-10  hover:bg-orange-600 hover:text-white "
-                to="/about"
-              >
-                ABOUT
-              </li>
+            <Link to="/about">
+              <li className="m-10 hover:text-white ">ABOUT</li>
             </Link>
-            <Link>
-              <li
-                className="m-10  hover:bg-orange-600 hover:text-white "
-                to="/contact"
-              >
-                CONTACT
-              </li>
+            <Link to="/contact">
+              <li className="m-10 hover:text-white">CONTACT</li>
             </Link>
+            <li className="m-10 p-1 text-black font-bold">{loggedInUser}</li>
           </ul>
         </div>
         <div className="flex">

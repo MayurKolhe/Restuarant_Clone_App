@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import marathi_img from "../../Images/marathi_food.jpeg";
-
+import userDetailsContext from "../hooks/useGetUserDetail";
 const About = () => {
   const [show, setShow] = useState(false);
+  const { loggedInUser } = useContext(userDetailsContext);
 
   return (
     <div>
@@ -35,8 +36,9 @@ const About = () => {
         <div className="about-left">
           <h1>
             Welcome to <br /> The world of <br />
-            Mayur Restaurant App
-            <span>Tasty & Fresh Food</span>
+            <span> {loggedInUser} </span> 
+            Restaurant App
+            <span> Tasty & Fresh Food.</span>
           </h1>
           <h4>
             "Better you will feel if you eat a with Special Marathi Dishes
